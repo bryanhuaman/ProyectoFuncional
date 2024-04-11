@@ -15,7 +15,7 @@ public class MarcaController {
     @GetMapping("/busqueda")
     public ResponseEntity<List<String>> buscarMarca(@RequestParam (required = false) String marca){
         return ResponseEntity.ok(lstMarcas.stream()
-                .filter(val -> marca == null || val.startsWith(marca))
+                .filter(val -> marca == null || val.startsWith(marca)) //Si la marca esta vacia trae todos ; Si la marca comienza con una letra trae todas las marcas que tengan esa letra
                 .collect(Collectors.toList()));
     }
 
